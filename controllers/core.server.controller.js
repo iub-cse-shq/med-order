@@ -4,7 +4,14 @@
  * Module dependencies.
  */
 exports.index = function(req, res) {
-	res.render('./../index.ejs', {
+	res.render('./../public/index.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
+exports.add_product = function(req, res) {
+	res.render('./../public/add_product.ejs', {
 		user: req.user || null,
 		request: req
 	});
