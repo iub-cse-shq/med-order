@@ -2,8 +2,8 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css_files\styles.css">
 <title>Oshud Ano</title>
-<link rel="stylesheet" href="vendor/bootstrap.min.css">
-
+<link rel="stylesheet" href="vendor\bootstrap.min.css">
+<script src="vendor\bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
   				<div class="profile-usermenu">
   					<ul class="nav">
               <li class="active">
-  							<a href="/">
+  							<a href="index">
   							<i class="glyphicon glyphicon-home"></i>
   							Dasboard </a>
   						</li>
@@ -86,51 +86,47 @@
 
 
 <div id="view">
-  <div class="panel panel-success">
-      <div class="panel-heading"><center>ADD PRODUCT FORM<center></div>
-      <div class="panel-body">
-        <table class="table table-hover">
-        <thead>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Category Name</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Name</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Price</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Status</td>
-            <td><label><input type="text" class="form-control" id="usr"></label></td>
-          </div></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><button type="button" class="btn btn-success">SAVE</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>  DATE </th>
+      <th>  SALE ID </th>
+      <th>  TOTAL SALE </th>
+      <th>  ACTION </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6-06-2017</td>
+      <td>1207</td>
+      <td>500</td>
+      <td><div>
+        <button type="button" class="btn btn-success">VIEW</button>
+        <button type="button" class="btn btn-danger">PRINT</button>
       </div>
-  </div>
+
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-
-</body>
 <div id="footer">
 <h4>Copyright@2017 all rights reserved.</h4>
 <h5> This Product was developed by S.H.I.E.L.D </h5>
 </div>
 
 </body>
-
 </html>

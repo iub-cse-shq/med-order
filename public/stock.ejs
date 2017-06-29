@@ -2,7 +2,10 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css_files\styles.css">
 <title>Oshud Ano</title>
-<link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="vendor\bootstrap.min.css">
+<link rel="stylesheet" href="vendor\3.3.7_bootstrap.min.css">
+<script src="vendor\jquery.min.js"></script>
+<script src="vendor\bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -34,7 +37,7 @@
   				<div class="profile-usermenu">
   					<ul class="nav">
               <li class="active">
-  							<a href="/">
+  							<a href="index">
   							<i class="glyphicon glyphicon-home"></i>
   							Dasboard </a>
   						</li>
@@ -86,51 +89,87 @@
 
 
 <div id="view">
-  <div class="panel panel-success">
-      <div class="panel-heading"><center>ADD PRODUCT FORM<center></div>
-      <div class="panel-body">
-        <table class="table table-hover">
-        <thead>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Category Name</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Name</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Price</td>
-          <td><label><input type="text" class="form-control" id="usr"></label></td>
-        </tr>
-        <tr>
-          <td>Product Status</td>
-            <td><label><input type="text" class="form-control" id="usr"></label></td>
-          </div></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><button type="button" class="btn btn-success">SAVE</button></td>
-        </tr>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>  Product Name </th>
+      <th>  Product Category </th>
+      <th>  Stock Quantity </th>
+      <th>  Product ID </th>
+      <th>  View </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Napa</td>
+      <td>Paracetamol</td>
+      <td>400psc</td>
+      <td>47</td>
+      <td>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">info</button></td>
+      </tr>
+
       </tbody>
-    </table>
-      </div>
-  </div>
+      </table>
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"></h4>
+          </div>
+        <div class="modal-body">
+          <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12</td>
+        <td>Napa</td>
+        <td>10</td>
+        <td>Paracetamol</td>
+        <td>Present</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+
+          </div>
+        </div>
+
+
 </div>
-
-
-</body>
 <div id="footer">
 <h4>Copyright@2017 all rights reserved.</h4>
 <h5> This Product was developed by S.H.I.E.L.D </h5>
 </div>
 
 </body>
-
 </html>
