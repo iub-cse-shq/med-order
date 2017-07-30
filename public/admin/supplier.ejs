@@ -96,34 +96,34 @@
   <tbody>
   <tr>
     <td>Name</td>
-    <td><label><input type="text" class="form-control" id="usr"></label></td>
+    <td><label><input type="text" class="form-control" id="Name"></label></td>
   </tr>
   <tr>
     <td>Email</td>
-    <td><label><input type="text" class="form-control" id="usr"></label></td>
+    <td><label><input type="text" class="form-control" id="Email"></label></td>
   </tr>
   <tr>
     <td>Phone</td>
-    <td><label><input type="text" class="form-control" id="usr"></label></td>
+    <td><label><input type="text" class="form-control" id="Phone"></label></td>
   </tr>
   <tr>
     <td>Adress</td>
     <td><div class="form-group">
-      <label><textarea class="form-control" rows="5" id="comment"></textarea></label>
+      <label><textarea class="form-control" rows="5" id="Address"></textarea></label>
     </div></td>
 
   </tr>
   <tr>
     <td>Balance</td>
-    <td><label><input type="text" class="form-control" id="usr"></label></td>
+    <td><label><input type="text" class="form-control" id="Balance"></label></td>
   </tr>
   <tr>
     <td>Due</td>
-    <td><label><input type="text" class="form-control" id="usr"></label></td>
+    <td><label><input type="text" class="form-control" id="Due"></label></td>
   </tr>
   <tr>
     <td></td>
-    <td><button type="button" class="btn btn-success">SAVE</button></td>
+    <td><button type="button" class="btn btn-success" id="Submit_vendor">SAVE</button></td>
   </tr>
   </tbody>
 </table>
@@ -135,5 +135,57 @@
 </div>
 
 </body>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/vendor/ejs_production.js"></script>
+<script>
+var vendor = {
+    vendor_name: "",
+    vendor_phone:"",
+    vendor_address: null,
+    vendor_email: null,
+    vendor_balance: null,
+    vendor_due:null,
+    vendor_id:null
+  };
+  $('#Name').change(function(){
+    vendor.vendor_name = $('#Name').val();
+  });
+  $('#Phone').change(function(){
+    vendor.vendor_phone = $('#Phone').val();
+  });
+  $('#Email').change(function(){
+    vendor.vendor_email = $('#Email').val();
+  });
+  $('#Address').change(function(){
+    vendor.vendor_address = $('#Address').val();
+  });
+  $('#Due').change(function(){
+    vendor.vendor_due=$('#Due').val();   
+  });
+  $('#Balance').change(function(){
+    vendor.vendor_balance=$('#Balance').val();   
+  });
+  vendor.vendor_id="123";
+  $('#Submit_vendor').click(function(){
+    $.ajax({
+      method:"POST",
+      url:'/api/vendors',
+      data: vendor
+    }).done(function(response){
+      $('#Name').val('');
+      $('#Phone').val('');
+      $('#Email').val('');
+      $('#Address').val('');
+      $('#Due').val('');
+      $('#Balance').val('');
+      alert("Purchased purchase has been added");
+      console.log("Purchased purchase has been added");
+      window.location.replace("/supplier");
+    }).fail(function(response){
+      $("#error").text(JSON.parse(response.responseText).message);
+        console.log(JSON.parse(response.responseText).message);
+    });
+  });
+  </script>
 
 </html>

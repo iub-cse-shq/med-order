@@ -1,3 +1,4 @@
+
 // initial dummy data for articles and user
 
 var mongoose = require('mongoose');

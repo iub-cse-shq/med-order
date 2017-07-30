@@ -1,0 +1,143 @@
+<%include header%>
+
+<div id="view">
+  <div class ="row">
+    <div class="col-xs-6">
+  <table class="table table-hover">
+  <thead>
+  <tr>
+    <th>ADD Details</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Vendor Name</td>
+    <td><label><input type="text" class="form-control" id="vendor_purchase_name"></label></td>
+  </tr>
+  <tr>
+    <td>Product Name</td>
+    <td><label><input type="text" class="form-control" id="purchase_product_name"></label></td>
+
+  </tr>
+  <tr>
+    <td>Quantity</td>
+    <td><label><input type="text" class="form-control" id="purchase_quantity"></label></td>
+
+  </tr>
+  <tr>
+    <td>Per Price</td>
+    <td><label><input type="text" class="form-control" id="purchase_price"></label></td>
+
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><label><input type="text" class="form-control" id="purchase_totalsale"></label></td>
+  </tr>
+  <tr>
+    <td></td>
+          <td><button type="button" id="save_purchase" class="btn btn-success">SAVE</button></td>
+
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="col-xs-6">
+<div class="panel panel-success">
+  <div class="panel-heading"><center>Information<center></div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>purchase</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Supplier</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Napa</td>
+          <td>20 psc</td>
+          <td>70</td>
+          <td>Pharmacy</td>
+          <td>1400</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success">SAVE</button>
+    <button type="button" class="btn btn-danger">EDIT</button>
+  </div>
+
+</div>
+
+</div>
+  </div>
+</div>
+<%include footer%>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/vendor/ejs_production.js"></script>
+<script>
+var purchase = {
+    vendor_purchase_name: "",
+    purchase_product_name:"",
+    purchase_quantity: null,
+    purchase_price: null,
+    purchase_totalsale: null
+  };
+  $('#purchase_product_name').change(function(){
+    purchase.purchase_product_name = $('#purchase_product_name').val();
+  });
+  $('#vendor_purchase_name').change(function(){
+    purchase.vendor_purchase_name = $('#vendor_purchase_name').val();
+  });
+  $('#purchase_price').change(function(){
+    purchase.purchase_price = $('#purchase_price').val();
+  });
+  $('#purchase_quantity').change(function(){
+    purchase.purchase_quantity = $('#purchase_quantity').val();
+    
+  });
+  $('#purchase_totalsale').change(function(){
+    purchase_totalsale=$('#purchase_totalsale').val();   
+    
+  });
+  $('#save_purchase').click(function(){
+    $.ajax({
+      method:"POST",
+      url:'/api/purchases',
+      data: purchase
+    }).done(function(response){
+      $('#purchase_product_name').val('');
+      $('#vendor_purchase_name').val('');
+      $('#purchase_price').val('');
+      $('#purchase_quantity').val('');
+      $('#purchase_totalsale').val('');      
+      alert("Purchased purchase has been added");
+      console.log("Purchased purchase has been added");
+      window.location.replace("/add_purchase");
+    }).fail(function(response){
+      $("#error").text(JSON.parse(response.responseText).message);
+        console.log(JSON.parse(response.responseText).message);
+    });
+  });
+  </script>
+
+</html>
