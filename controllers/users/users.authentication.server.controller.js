@@ -14,7 +14,6 @@ var _ = require('lodash'),
  */
 exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
-	delete req.body.roles;
 
 	// Init Variables
 	var user = new User(req.body);
@@ -34,13 +33,12 @@ exports.signup = function(req, res) {
 			user.password = undefined;
 			user.salt = undefined;
 
-			req.login(user, function(err) {
 				if (err) {
 					res.status(400).send(err);
 				} else {
 					res.json(user);
 				}
-			});
+		
 		}
 	});
 };
@@ -82,6 +80,7 @@ exports.signout = function(req, res) {
 		if(err){
 		}
 	});
+	res.redirect("/signin");
 	res.status(200).send({message:"signed out"});
 };
 

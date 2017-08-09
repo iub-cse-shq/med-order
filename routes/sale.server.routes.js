@@ -4,16 +4,16 @@ module.exports = function(app){
  var users = require('./../controllers/users.server.controller.js');
 
  app.route('/api/sales')
-	.get(sales.list)
-	.post(users.requiresLogin, sales.create);
+	.get(users.requiresLogin,sales.list)
+	.post(users.requiresLogin,sales.create);
 
   app.route('/api/sales/:saleId')
-	.get(sales.read)
-  .delete(users.requiresLogin, sales.delete);
+	.get(users.requiresLogin,sales.read)
+  .delete(users.requiresLogin,sales.delete);
 
 	app.route('/api/sales/edit/:saleId')
-	.get(sales.read)
-	.put(users.requiresLogin, sales.update);
+	.get(users.requiresLogin,sales.read)
+	.put(users.requiresLogin,sales.update);
 
 
 app.param('saleId', sales.saleByID);

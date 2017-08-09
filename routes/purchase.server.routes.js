@@ -7,11 +7,11 @@ module.exports = function(app){
 
  app.route('/api/purchases')
 	.get(purchases.list)
-	.post(users.requiresLogin, purchases.create);
+	.post(purchases.create);
 
   app.route('/api/purchases/:purchaseId')
 	.get(purchases.read)
-  .delete(users.requiresLogin, purchases.delete);
+  .delete(purchases.delete);
 
 	app.route('/api/purchases/edit/:purchaseId')
 	.get(purchases.read)

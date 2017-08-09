@@ -4,18 +4,18 @@ module.exports = function(app){
  var users = require('./../controllers/users.server.controller.js');
 
  app.route('vendors/new')
-    .get(vendors.new);
+    .get(users.requiresLogin,vendors.new);
  app.route('/api/vendors')
-	.get(vendors.list)
-	.post(users.requiresLogin, vendors.create);
+	.get(users.requiresLogin,vendors.list)
+	.post(users.requiresLogin,vendors.create);
 
   app.route('/api/vendors/:vendorId')
-	.get(vendors.read)
+	.get(users.requiresLogin,vendors.read)
   .delete(users.requiresLogin, vendors.delete);
 
 	app.route('/api/vendors/edit/:vendorId')
-	.get(vendors.read)
-	.put(users.requiresLogin, vendors.update);
+	.get(users.requiresLogin,vendors.read)
+	.put(users.requiresLogin,vendors.update);
 
 
 app.param('vendorId', vendors.vendorByID);

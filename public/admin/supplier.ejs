@@ -1,141 +1,56 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="css_files\supplier.css">
-<title>Oshud Ano</title>
-<link rel="stylesheet" href="vendor\bootstrap.min.css">
+<%include header%>
 
-</head>
-<body>
+<div class="row-fluid">
+    <div class="span12">
+            <div class="widget-title">
+                <h4><i class="icon-reorder"></i>Add Supplyer Form </h4>
 
-<div id="header">
-  <h2> Store Name </h2>
-<h1><img src="img/logo.png" height="100" width="170">OSHUDH ANO</h1>
-</div>
+            </div>
+                  <table class="table table-striped">
+                   <tbody>
+                     <tr>
+                          <td> <label class="control-label">Supplyer Name:</label> </td>
+                          <td><input type="text" id="supplyerName" class="span6 " required/></td>
 
-<div id="main">
-      <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
-      <img src="img/admin.png" style="width:99px;height:99px"; class="img-responsive" alt="">
 
+
+                     </tr>
+                     <tr>
+                         <td> <label class="control-label">Supplyer Email:</label> </td>
+                         <td><input type="text" id="supplyerEmail" class="span6 " /></td>
+
+
+
+                     </tr>
+                     <tr>
+                         <td> <label class="control-label">Supplyer Phone:</label> </td>
+                         <td><input type="text" id="supplyerPhone" class="span6 " /></td>
+
+
+
+                     </tr>
+                     <tr>
+                         <td> <label class="control-label">Supplyer Address:</label> </td>
+                         <td><textarea id='supplyerAddress' rows='5' cols="40"></textarea></td>
+
+
+
+                     </tr>
+                  
+
+                                      
+                                       </tbody></table>
+
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn" class="btn btn-success btn-sm">Submit</button>
+
+                    </div>
+            </div>
         </div>
-        <div class="profile-usertitle">
-          <div class="profile-usertitle-name">
-        Admin
-      </div>
-          <div class="profile-usertitle-job">
-            Owner
-          </div>
-        </div>
-        <div class="profile-userbuttons">
-          <button type="button" class="btn btn-success btn-sm">Message</button>
-          <button type="button" class="btn btn-danger btn-sm">Logout</button>
-        </div>
-        <div class="profile-usermenu">
-          <ul class="nav">
-            <li class="active">
-              <a href="index">
-              <i class="glyphicon glyphicon-home"></i>
-              Dasboard </a>
-            </li>
-            <li>
-              <a href="add_product">
-              <i class="glyphicon glyphicon-glass"></i>
-              Add Product </a>
-            </li>
-            <li>
-              <a href="manage_product">
-              <i class="glyphicon glyphicon-pencil"></i>
-              Manage Product </a>
-            </li>
-            <li>
-              <a href="view_invoices">
-              <i class="glyphicon glyphicon-file"></i>
-              Invoices </a>
-            </li>
-            <li>
-              <a href="payment">
-              <i class="glyphicon glyphicon-usd"></i>
-              Payment </a>
-            </li><li>
-              <a href="add_purchase">
-              <i class="glyphicon glyphicon-leaf"></i>
-              Purchase </a>
-            </li><li>
-              <a href="stock">
-              <i class="glyphicon glyphicon-tag"></i>
-              Stock </a>
-            </li>
-            <li>
-              <a href="supplier">
-              <i class="glyphicon glyphicon-user"></i>
-              Supplier </a>
-            </li><li>
-              <a href="#">
-              <i class="glyphicon glyphicon-gift"></i>
-              Profit </a>
-            </li>
-          </ul>
-        </div>
-        <!-- END MENU -->
-      </div>
-    </div>
 
+<%include footer%>
 
-
-
-
-<div id="view">
-  <table class="table table-hover">
-  <thead>
-  <tr>
-    <th>Add Supplier Form</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Name</td>
-    <td><label><input type="text" class="form-control" id="Name"></label></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><label><input type="text" class="form-control" id="Email"></label></td>
-  </tr>
-  <tr>
-    <td>Phone</td>
-    <td><label><input type="text" class="form-control" id="Phone"></label></td>
-  </tr>
-  <tr>
-    <td>Adress</td>
-    <td><div class="form-group">
-      <label><textarea class="form-control" rows="5" id="Address"></textarea></label>
-    </div></td>
-
-  </tr>
-  <tr>
-    <td>Balance</td>
-    <td><label><input type="text" class="form-control" id="Balance"></label></td>
-  </tr>
-  <tr>
-    <td>Due</td>
-    <td><label><input type="text" class="form-control" id="Due"></label></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><button type="button" class="btn btn-success" id="Submit_vendor">SAVE</button></td>
-  </tr>
-  </tbody>
-</table>
-</div>
-</body>
-<div id="footer">
-<h4>Copyright@2017 all rights reserved.</h4>
-<h5> This Product was developed by S.H.I.E.L.D </h5>
-</div>
-
-</body>
-<script src="/lib/jquery/dist/jquery.min.js"></script>
 <script src="/vendor/ejs_production.js"></script>
 <script>
 var vendor = {
@@ -143,47 +58,41 @@ var vendor = {
     vendor_phone:"",
     vendor_address: null,
     vendor_email: null,
-    vendor_balance: null,
-    vendor_due:null,
-    vendor_id:null
+    vendorID:null
   };
-  $('#Name').change(function(){
-    vendor.vendor_name = $('#Name').val();
+  $('#supplyerName').change(function(){
+    vendor.vendor_name = $('#supplyerName').val();
   });
-  $('#Phone').change(function(){
-    vendor.vendor_phone = $('#Phone').val();
+  $('#supplyerPhone').change(function(){
+    vendor.vendor_phone = $('#supplyerPhone').val();
   });
-  $('#Email').change(function(){
-    vendor.vendor_email = $('#Email').val();
+  $('#supplyerEmail').change(function(){
+    vendor.vendor_email = $('#supplyerEmail').val();
   });
-  $('#Address').change(function(){
-    vendor.vendor_address = $('#Address').val();
+  $('#supplyerAddress').change(function(){
+    vendor.vendor_address = $('#supplyerAddress').val();
   });
-  $('#Due').change(function(){
-    vendor.vendor_due=$('#Due').val();   
-  });
-  $('#Balance').change(function(){
-    vendor.vendor_balance=$('#Balance').val();   
-  });
-  vendor.vendor_id="123";
-  $('#Submit_vendor').click(function(){
+ 
+  vendor.vendorID = new Date().getTime() + Math.random();
+ 
+  $('#submitBtn').click(function(){
     $.ajax({
       method:"POST",
       url:'/api/vendors',
       data: vendor
     }).done(function(response){
-      $('#Name').val('');
-      $('#Phone').val('');
-      $('#Email').val('');
-      $('#Address').val('');
-      $('#Due').val('');
-      $('#Balance').val('');
-      alert("Purchased purchase has been added");
-      console.log("Purchased purchase has been added");
+      $('#supplyerName').val('');
+      $('#supplyerPhone').val('');
+      $('#supplyerEmail').val('');
+      $('#supplyerAddress').val('');
+ 
+      
+      alert("Supplyer Added");
+      
       window.location.replace("/supplier");
     }).fail(function(response){
       $("#error").text(JSON.parse(response.responseText).message);
-        console.log(JSON.parse(response.responseText).message);
+        alert(JSON.parse(response.responseText).message);
     });
   });
   </script>

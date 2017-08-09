@@ -2,13 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var VendorSchema = {
 
-    vendor_id: {
-        type: String,
+
+   vendorID: {
+        type: Number,
         trim: true,
         default: '',
         required: 'ID required'
-    },
-      
+      },
+
     vendor_name: {
         type: String,
         trim: true,
@@ -40,13 +41,11 @@ var VendorSchema = {
         type: String,
         trim: true,
         default: '',
-        required: 'Balance required',
     },
     vendor_due: {
         type: String,
         trim: true,
         default: '',
-        required: 'Due required',
     },
     
     user: {

@@ -2,25 +2,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var SaleSchema = {
 
-    sale_id: {
-        type: String,
-        trim: true,
-        default: '',
-        required: 'Number required'    
-    },
-    
-    cus_id: {
-        type: Number,
-        trim: true,
-        default: '',
-        required: 'Number required'    
-    },
-
+  
     sale_quantity: {
         type: Number,
         trim: true,
         default: '',
         required: 'Number required',
+    },
+      sale_product: {
+        type: String,
+        trim: true,
+        default: '',
+        required: 'Product name required',
     },
 
     sale_price: {
@@ -35,20 +28,6 @@ var SaleSchema = {
         trim: true,
         default: '',
         required: 'Number required'
-    },
-
-    sale_date: {
-        type: String,
-        trim: true,
-        default: '',
-        required: 'Date required'
-      },
-    
-    sale_totalsale: {
-        type: Number,
-        trim: true,
-        default: '',
-        required: 'Number required',
     },
     
     user: {

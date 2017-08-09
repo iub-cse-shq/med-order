@@ -28,11 +28,12 @@ exports.userByID = function(req, res, next, id) {
  */
 exports.requiresLogin = function(req, res, next) {
 		if (!req.isAuthenticated()) {
+		res.redirect("/signin");
 		return res.status(401).send({
 			message: 'User is not logged in'
 		});
 	}
-
+   
 	next();
 };
 
@@ -47,7 +48,9 @@ exports.hasAuthorization = function(roles) {
 			if (_.intersection(req.user.roles, roles).length) {
 				return next();
 			} else {
+				res.redirect("/signin");
 				return res.status(403).send({
+				
 					message: 'User is not authorized'
 				});
 			}

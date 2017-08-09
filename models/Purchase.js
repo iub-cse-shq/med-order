@@ -1,24 +1,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 var PurchaseSchema = {
 
-    // purchase_no: {
-    //     type: String,
-    //     trim: true,
-    //     default: '',
-    //     required: 'Number required'
-    // },
-
-
-    purchase_product_name: {
+    purchase_productName: {
         type: String,
         trim: true,
         default: '',
         required: 'Name required'
     },
-      
-
-    vendor_purchase_name: {
+    vendorName: {
         type: String,
         trim: true,
         default: '',
@@ -26,25 +17,13 @@ var PurchaseSchema = {
     },      
       
 
-    purchase_totalsale: {
+    purchasetotalPrice: {
         type: Number,
         trim: true,
         default: '',
         //required: 'Number required'
       },
-      
-    // purchase_paid: {
-    //     type: Number,
-    //     trim: true,
-    //     default: '',
-    //     required: 'Number required'
-    // },
-    // purchase_due: {
-    //     type: Number,
-    //     trim: true,
-    //     default: '',
-    //     required: 'Number required',
-    // },
+   
 
     purchase_price: {
         type: Number,
@@ -71,6 +50,5 @@ var PurchaseSchema = {
   }    
 
 }
-
 var Purchase = mongoose.model('Purchase', PurchaseSchema, 'purchase');
 module.exports = Purchase;

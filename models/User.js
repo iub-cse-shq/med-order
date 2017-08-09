@@ -58,7 +58,7 @@ var UserSchema = new Schema({
     },
     photo: {
         type: String,
-        default: 'http://www.ee-ip.org/sites/default/files/default_images/default-user.png',
+        default: '/img/admin.png',
         trim: true
     },
     description: {
